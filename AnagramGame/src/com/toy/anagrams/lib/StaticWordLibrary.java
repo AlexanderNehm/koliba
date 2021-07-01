@@ -47,7 +47,15 @@ final class StaticWordLibrary extends WordLibrary {
         "Regal",
         "Tragen",
         "Mehl",
-        "Atheismus"
+        "Mietshaus",
+        "England",
+        "Island",
+        "Wiki",
+        "Salat",
+        "abgeerntet",
+        "Atheismus",
+        "Kater",
+        "Kiwi"
     };
 
     private static final String[] SCRAMBLED_WORD_LIST = {
@@ -62,7 +70,15 @@ final class StaticWordLibrary extends WordLibrary {
         "Lager",
         "Garten",
         "Helm",
-        "Mietshaus"
+        "Atheismus",
+        "Geldnan",
+        "Adslin",
+        "Kiwi",
+        "Atlas",
+        "Gartenbeet",
+        "Mietshaus",
+        "Karte",
+        "Wiki"
     };
     
     final static WordLibrary DEFAULT = new StaticWordLibrary();
