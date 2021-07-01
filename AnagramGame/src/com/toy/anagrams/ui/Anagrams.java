@@ -36,6 +36,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
+import java.util.Random;
 
 /**
  * Main window of the Anagram Game application.
@@ -70,6 +71,7 @@ public class Anagrams extends JFrame {
         new Anagrams().setVisible(true);
     }
 
+    private Random wortWaehler = new Random();
     private int wordIdx = 0;
     private WordLibrary wordLibrary;
 
@@ -79,6 +81,7 @@ public class Anagrams extends JFrame {
         
         initComponents();
         getRootPane().setDefaultButton(guessButton);
+        wordIdx = wortWaehler.nextInt(wordLibrary.getSize());
         scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
         pack();
         guessedWord.requestFocusInWindow();
@@ -111,7 +114,7 @@ public class Anagrams extends JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
 
-        setTitle("Anagrams");
+        setTitle("Anagramme");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 exitForm(evt);
@@ -122,7 +125,7 @@ public class Anagrams extends JFrame {
 
         mainPanel.setBorder(new javax.swing.border.EmptyBorder(new java.awt.Insets(12, 12, 12, 12)));
         mainPanel.setMinimumSize(new java.awt.Dimension(297, 200));
-        scrambledLabel.setText("Scrambled Word:");
+        scrambledLabel.setText("Ausgangswort:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -138,9 +141,9 @@ public class Anagrams extends JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 12, 0);
         mainPanel.add(scrambledWord, gridBagConstraints);
 
-        guessLabel.setDisplayedMnemonic('Y');
+        guessLabel.setDisplayedMnemonic('L');
         guessLabel.setLabelFor(guessedWord);
-        guessLabel.setText("Your Guess:");
+        guessLabel.setText("Deine Lösung:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -166,9 +169,9 @@ public class Anagrams extends JFrame {
 
         buttonsPanel.setLayout(new java.awt.GridBagLayout());
 
-        guessButton.setMnemonic('G');
-        guessButton.setText("Guess");
-        guessButton.setToolTipText("Guess the scrambled word.");
+        guessButton.setMnemonic('R');
+        guessButton.setText("Raten");
+        guessButton.setToolTipText("Rate das Anagramm.");
         guessButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guessedWordActionPerformed(evt);
@@ -184,8 +187,8 @@ public class Anagrams extends JFrame {
         buttonsPanel.add(guessButton, gridBagConstraints);
 
         nextTrial.setMnemonic('N');
-        nextTrial.setText("New Word");
-        nextTrial.setToolTipText("Fetch a new word.");
+        nextTrial.setText("Neues Wort");
+        nextTrial.setToolTipText("Wähle ein neues Wort.");
         nextTrial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextTrialActionPerformed(evt);
@@ -243,7 +246,7 @@ public class Anagrams extends JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void nextTrialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTrialActionPerformed
-        wordIdx = (wordIdx + 1) % wordLibrary.getSize();
+        wordIdx = wortWaehler.nextInt(wordLibrary.getSize());
 
         feedbackLabel.setText(" ");
         scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
@@ -259,10 +262,10 @@ public class Anagrams extends JFrame {
 
     private void guessedWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessedWordActionPerformed
         if (wordLibrary.isCorrect(wordIdx, guessedWord.getText())){
-            feedbackLabel.setText("Correct! Try a new word!");
+            feedbackLabel.setText("Richtig! Versuche ein neues Wort!");
             getRootPane().setDefaultButton(nextTrial);
         } else {
-            feedbackLabel.setText("Incorrect! Try again!");
+            feedbackLabel.setText("Leider falsch. Versuche es nochmal!");
             guessedWord.setText("");
         }
 
