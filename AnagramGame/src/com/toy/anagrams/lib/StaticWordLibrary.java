@@ -46,7 +46,8 @@ final class StaticWordLibrary extends WordLibrary {
         "Anna",
         "Regal",
         "Tragen",
-        "Mehl"
+        "Mehl" ,
+        "Rolling Stones"
     };
 
     private static final String[] SCRAMBLED_WORD_LIST = {
@@ -60,7 +61,8 @@ final class StaticWordLibrary extends WordLibrary {
         "Anna",
         "Lager",
         "Garten",
-        "Helm"
+        "Helm" ,
+        "groelt sinnlos"
     };
     
     final static WordLibrary DEFAULT = new StaticWordLibrary();
