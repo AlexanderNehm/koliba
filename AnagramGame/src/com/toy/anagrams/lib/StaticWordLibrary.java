@@ -48,7 +48,8 @@ final class StaticWordLibrary extends WordLibrary {
         "Tragen",
         "Mehl",
         "Wiki",
-        "Salat"
+        "Salat",
+        "abgeerntet"
     };
 
     private static final String[] SCRAMBLED_WORD_LIST = {
@@ -64,7 +65,8 @@ final class StaticWordLibrary extends WordLibrary {
         "Garten",
         "Helm",
         "Kiwi",
-        "Atlas"
+        "Atlas",
+        "Gartenbeet"
     };
     
     final static WordLibrary DEFAULT = new StaticWordLibrary();
