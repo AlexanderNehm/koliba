@@ -47,6 +47,8 @@ final class StaticWordLibrary extends WordLibrary {
         "Regal",
         "Tragen",
         "Mehl",
+        "Atheismus",
+        "Kater",
         "Kiwi"
     };
 
@@ -62,6 +64,8 @@ final class StaticWordLibrary extends WordLibrary {
         "Lager",
         "Garten",
         "Helm",
+        "Mietshaus",
+        "Karte",
         "Wiki"
     };
     
